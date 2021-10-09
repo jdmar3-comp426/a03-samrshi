@@ -32,7 +32,7 @@ export const allCarStats = {
     ratioHybrids: hybrids.length / mpg_data.length
 };
 
-console.log(allCarStats);
+// console.log(allCarStats);
 
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
