@@ -13,10 +13,10 @@ export function getSum(array) {
 }
 
 // Test getSum(array)
-// logSectionHeader("getSum(array)")
+logSectionHeader("getSum(array)")
 
-// const arr = [1, 2, 3, 4, 5, 6, 7]
-// consoleUnitTest(getSum(arr), 28)
+const arr = [1, 2, 3, 4, 5, 6, 7]
+consoleUnitTest(getSum(arr), 28)
 
 /**
  * Calculates the median of an array of numbers.
@@ -42,13 +42,22 @@ export function getMedian(array) {
 }
 
 // ++ Test getMedian(array) ++ //
-// logSectionHeader("getMedian(array)")
+logSectionHeader("getMedian(array)")
 
-// const odd = [1, 2, 3, 4, 5, 6, 7]
-// const even = [1, 2, 3, 4, 5, 6]
+const odd = [1, 2, 3, 4, 5, 6, 7]
+const even = [3, 2, 5, 6, 2, 7, 4, 2, 7, 5]
 
-// consoleUnitTest(getMedian(odd), 4)
-// consoleUnitTest(getMedian(even), 3.5)
+consoleUnitTest(getMedian(odd), 4)
+consoleUnitTest(getMedian(even), 4.5)
+
+/**
+ * Calculates the mean of an array of numbers.
+ * @param {number[]} array
+ * @returns {number|*}
+ */
+export function getMean(array) {
+    return array.reduce((a, b) => a + b) / array.length;
+}
 
 /**
  * Calculates statistics (see below) on an array of numbers.
@@ -72,7 +81,7 @@ export function getMedian(array) {
 export function getStatistics(array) {
     const length = array.length
     const sum = getSum(array)
-    const mean = array.reduce((a, b) => a + b) / array.length;
+    const mean = getMean(array);
     const median = getMedian(array)
     const min = Math.min(...array)
     const max = Math.max(...array)
@@ -92,25 +101,25 @@ export function getStatistics(array) {
 }
 
 // ++ Test getStatistics(array) ++ //
-// logSectionHeader('getStatistics(array)')
+logSectionHeader('getStatistics(array)')
 
-// const actual = getStatistics([3,2,4,5,5,5,2,6,7])
-// const expected = {
-//     length: 9,
-//     sum: 39,
-//     mean: 4.333333333333333,
-//     median: 5,
-//     min: 2,
-//     max: 7,
-//     variance: 2.6666666666666665,
-//     standard_deviation: 1.632993161855452
-// }
+const actual = getStatistics([3,2,4,5,5,5,2,6,7])
+const expected = {
+    length: 9,
+    sum: 39,
+    mean: 4.333333333333333,
+    median: 5,
+    min: 2,
+    max: 7,
+    variance: 2.6666666666666665,
+    standard_deviation: 1.632993161855452
+}
 
-// consoleUnitTest(actual.length, expected.length)
-// consoleUnitTest(actual.sum, expected.sum)
-// consoleUnitTest(actual.mean, expected.mean)
-// consoleUnitTest(actual.median, expected.median)
-// consoleUnitTest(actual.min, expected.min)
-// consoleUnitTest(actual.max, expected.max)
-// consoleUnitTest(actual.variance, expected.variance)
-// consoleUnitTest(actual.standard_deviation, expected.standard_deviation)
+consoleUnitTest(actual.length, expected.length)
+consoleUnitTest(actual.sum, expected.sum)
+consoleUnitTest(actual.mean, expected.mean)
+consoleUnitTest(actual.median, expected.median)
+consoleUnitTest(actual.min, expected.min)
+consoleUnitTest(actual.max, expected.max)
+consoleUnitTest(actual.variance, expected.variance)
+consoleUnitTest(actual.standard_deviation, expected.standard_deviation)
