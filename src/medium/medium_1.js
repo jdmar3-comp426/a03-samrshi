@@ -9,7 +9,7 @@ import { variance } from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
-    return array.reduce((a, b) => a + b)
+    return array.reduce((a, b) => a + b) 
 }
 
 // Test getSum(array)
