@@ -18,9 +18,17 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+    return car_data.filter(a => { return a.torque >= minTorque && a.horsepower >= minHorsepower }).sort((a, b) => {
+        if (a.horsepower > b.horsepower) {
+            return -1
+        } else if (a.torque < b.torque) {
+            return 1
+        }
+        return 0
+    })
 }
 
+console.log(searchHighPower(mpg_data, 600, 600))
 
 /**
  * @param {array} car_data
@@ -33,9 +41,17 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+    return car_data.filter(a => { return a.highway_mpg >= minHighway && a.city_mpg >= minCity }).sort((a, b) => {
+        if (a.highway_mpg > b.highway_mpg) {
+            return -1
+        } else if (a.highway_mpg < b.highway_mpg) {
+            return 1
+        }
+        return 0
+    })
 }
 
+console.log(searchMpg(mpg_data, 30, 30))
 
 /**
  * Find all cars where 'id' contains the search term below.
@@ -46,9 +62,20 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
+    return car_data.filter(a => a.id.toLowerCase().includes(searchTerm.toLowerCase())).sort((a, b) => {
+        let indexA = a.id.indexOf(searchTerm)
+        let indexB = b.id.indexOf(searchTerm)
 
+        if (indexA > indexB) {
+            return 1
+        } else if (indexB < indexA) {
+            return -1
+        }
+        return 0
+    })
 }
 
+console.log(searchName(mpg_data, "cylinder"))
 
 /**
  * Find all cars made in the years asked for.
@@ -59,5 +86,14 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
-
+    return car_data.filter(a => { return years.includes(a.year) }).sort((a, b) => {
+        if (a.year > b.year) {
+            return -1
+        } else if (a.year < b.year) {
+            return 1
+        }
+        return 0
+    })
 }
+
+console.log(searchByYear(mpg_data, [2010, 2011]))
