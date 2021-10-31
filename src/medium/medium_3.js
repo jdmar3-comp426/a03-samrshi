@@ -28,7 +28,7 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
     })
 }
 
-console.log(searchHighPower(mpg_data, 600, 600))
+// console.log(searchHighPower(mpg_data, 600, 600))
 
 /**
  * @param {array} car_data
@@ -51,7 +51,7 @@ export function searchMpg(car_data, minCity, minHighway) {
     })
 }
 
-console.log(searchMpg(mpg_data, 30, 30))
+// console.log(searchMpg(mpg_data, 30, 30))
 
 /**
  * Find all cars where 'id' contains the search term below.
@@ -75,7 +75,7 @@ export function searchName(car_data, searchTerm) {
     })
 }
 
-console.log(searchName(mpg_data, "cylinder"))
+// console.log(searchName(mpg_data, "cylinder"))
 
 /**
  * Find all cars made in the years asked for.
@@ -96,4 +96,4 @@ export function searchByYear(car_data, years) {
     })
 }
 
-console.log(searchByYear(mpg_data, [2010, 2011]))
+// console.log(searchByYear(mpg_data, [2010, 2011]))
