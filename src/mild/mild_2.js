@@ -93,14 +93,6 @@ export function removeKeyNonDestructive(object, key) {
    return rest
 }
 
-let obj2 = {
-   name: 'Mr. Boss',
-   title: 'boss',
-   age: 33,
-   password: 'pass123'
-}
-
-
 /**
  * Remove and return the listed keys. Without mutating the object passed in.
  * @param object

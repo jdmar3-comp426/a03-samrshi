@@ -73,7 +73,7 @@
     {
       "name": "removeKeyNonDestructive(object, key) from mild_2",
       "setup": "",
-      "run": "node --experimental-modules --input-type=module --eval \"import {removeKeyNonDestructive} from './src/mild/mild_2.js'; let idrecord = { name: 'John Martin', title: 'Instructor', age: 41, password: 'supersecretpassword' }; newrecord = removeKeyNonDestructive(idrecord, 'age'); console.log(idrecord); console.log(newrecord);\"",
+      "run": "node --experimental-modules --input-type=module --eval \"import {removeKeyNonDestructive} from './src/mild/mild_2.js'; let idrecord = { name: 'John Martin', title: 'Instructor', age: 41, password: 'supersecretpassword' }; let newrecord = removeKeyNonDestructive(idrecord, 'age'); console.log(idrecord); console.log(newrecord);\"",
       "input": "",
       "output": "{ name: 'John Martin',\r\n  title: 'Instructor',\r\n  age: 41,\r\n  password: 'supersecretpassword' }\r\n{ name: 'John Martin',\r\n  title: 'Instructor',\r\n  password: 'supersecretpassword' }",
       "comparison": "exact",
