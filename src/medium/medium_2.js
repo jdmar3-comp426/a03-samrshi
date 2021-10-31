@@ -21,13 +21,15 @@ see under the methods section
  */
 const city_mpgs = mpg_data.map((car) => car.city_mpg);
 const highway_mpgs = mpg_data.map((car) => car.highway_mpg);
-const all_mpgs = city_mpgs.concat(highway_mpgs);
 
 const all_years = mpg_data.map((car) => car.year);
 const hybrids = mpg_data.filter((car) => car.hybrid);
 
 export const allCarStats = {
-    avgMpg: getMedian(all_mpgs),
+    avgMpg: {
+        city: getMean(city_mpgs),
+        highway: getMean(highway_mpgs)
+    },
     allYearStats: getStatistics(all_years),
     ratioHybrids: hybrids.length / mpg_data.length
 };
