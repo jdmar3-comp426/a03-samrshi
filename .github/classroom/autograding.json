@@ -132,8 +132,8 @@
     },
     {
       "name": "moreStats from medium_2",
-      "setup": "npm install esm",
-      "run": "node -r esm --eval \"import {moreStats} from './src/medium/medium_2.js'; console.log(moreStats.avgMpgByYearAndHybrid);\"",
+      "setup": "",
+      "run": "node --experimental-modules --input-type=module --eval \"import {moreStats} from './src/medium/medium_2.js'; console.log(moreStats.avgMpgByYearAndHybrid);\"",
       "input": "",
       "output": "{ '2009':\r\n   { hybrid: { city: 20.5, highway: 21 },\r\n     notHybrid: { city: 17.622222222222224, highway: 24.6 } },\r\n  '2010':\r\n   { hybrid: { city: 21.055555555555557, highway: 22.72222222222222 },\r\n     notHybrid: { city: 16.970073404856013, highway: 23.619424054206664 } },\r\n  '2011':\r\n   { hybrid: { city: 21.692307692307693, highway: 33.23076923076923 },\r\n     notHybrid: { city: 16.8292438657987, highway: 23.479218828242363 } },\r\n  '2012':\r\n   { hybrid: { city: 23.066666666666666, highway: 29.066666666666666 },\r\n     notHybrid: { city: 18.221666666666668, highway: 25.7025 } } }",
       "comparison": "exact",
@@ -142,7 +142,7 @@
     },
     {
       "name": "searchHighPower(car_data, minHorsepower, minTorque) from medium_3",
-      "setup": "npm install --silent esm",
+      "setup": "",
       "run": "clear",
       "input": "",
       "output": "F",
