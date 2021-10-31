@@ -83,7 +83,7 @@
     {
       "name": "removeKeys(object, keyList) from mild_2",
       "setup": "",
-      "run": "node --experimental-modules --input-type=module --eval \"import {removeKeys} from './src/mild/mild_2.js'; let idrecord = { name: 'John Martin', title: 'Instructor', age: 41, password: 'supersecretpassword' }; newrecord = removeKeys(idrecord, [ 'age', 'password' ]); console.log(idrecord); console.log(newrecord);\"",
+      "run": "node --experimental-modules --input-type=module --eval \"import {removeKeys} from './src/mild/mild_2.js'; let idrecord = { name: 'John Martin', title: 'Instructor', age: 41, password: 'supersecretpassword' }; let newrecord = removeKeys(idrecord, [ 'age', 'password' ]); console.log(idrecord); console.log(newrecord);\"",
       "input": "",
       "output": "{ name: 'John Martin',\r\n  title: 'Instructor',\r\n  age: 41,\r\n  password: 'supersecretpassword' }\r\n{ name: 'John Martin', title: 'Instructor' }",
       "comparison": "exact",
