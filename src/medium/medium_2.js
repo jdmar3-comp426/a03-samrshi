@@ -32,8 +32,6 @@ export const allCarStats = {
     ratioHybrids: hybrids.length / mpg_data.length
 };
 
-// console.log(allCarStats);
-
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
  *
@@ -147,7 +145,6 @@ function avgMpgByYearAndHybrid(mpg_data) {
         }      
     })
 
-    // console.log(result)
     return result
 }
 

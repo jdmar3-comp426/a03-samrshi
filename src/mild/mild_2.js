@@ -12,7 +12,6 @@ export function identifyVariable(variable) {
    }
 }
 
-// console.log(identifyVariable(4))
 
 /**
  *
@@ -37,7 +36,6 @@ export function identifyArray(array) {
    return result
 }
 
-// console.log(identifyArray(['some', 3, [3, 4], false]))
 
 /**
  * mutates the object that is passed in.
@@ -66,8 +64,6 @@ let obj = {
    password: 'pass123'
 }
 
-// removeKey(obj, "password")
-// console.log(obj.password)
 
 /**
  * Does not mutate the object passed in
@@ -104,8 +100,6 @@ let obj2 = {
    password: 'pass123'
 }
 
-// console.log(obj2)
-// console.log(removeKeyNonDestructive(obj2, "password"))
 
 /**
  * Remove and return the listed keys. Without mutating the object passed in.
@@ -144,6 +138,3 @@ let obj3 = {
    age: 33,
    password: 'pass123'
 }
-
-// console.log(obj3)
-// console.log(removeKeys(obj3, ["password", "age"]))

@@ -95,9 +95,6 @@ export const everyEven = (arr, test) => {
     return true
 };
 
-// console.log(everyEven([1, 5, 1, 0, 1], x => x === 1))
-// console.log(everyEven([1, 1, 0, 1, 1], x => x === 1))
-
 /**
  * Write and export a function named "someEven" which takes an array and a test
  *   function for checking individual elements of the array. The "someEven"
@@ -126,10 +123,6 @@ export const someEven = (arr, test) => {
     return false
 };
 
-// console.log(someEven([4, 3, 2, 1, 0], x => x === 3))
-// console.log(someEven([1, 0, 1, 0, 1], x => x === 0))
-// console.log(someEven([1, 1, 1, 1, 0], x => x === 0))
-// console.log(someEven([0, 0, 0, 0, 0], x => x === 0))
 
 /**
  * Write and export a function named "filter" which takes an array and a test
@@ -169,8 +162,6 @@ export const filter = (arr, test) => {
         fail: fail
     }
 };
-// console.log(filter(['yes', 'nope', 'maybe', 'yellow'], x => x[0] === 'y'))
-// console.log(filter([1, 90, 5, 31], x => x % 2 === 1))
 
 /**
  * Write and export a function named "allEvensAreOdd" which takes as input an
@@ -186,8 +177,6 @@ export const allEvensAreOdd = (arr) => {
     return true
 };
 
-// console.log(allEvensAreOdd([1, 0, 3, 0, 4]))
-// console.log(allEvensAreOdd([2, 0, 6, 0, 4]))
 
 /**
  * Write and export a function named "anEvenIsOdd" which takes as input an
@@ -203,8 +192,6 @@ export const anEvenIsOdd = (arr) => {
     return false
 };
 
-// console.log(anEvenIsOdd([1, 0, 3, 0, 4]))
-// console.log(anEvenIsOdd([1, 0, 3, 0, 7]))
 
 /**
  * Write and export a function named "hasExactly" which takes an array, a test
@@ -214,9 +201,6 @@ export const anEvenIsOdd = (arr) => {
  */
 export const hasExactly = (arr, test, n) => {
     let pass = arr.filter(test)
-    console.log(pass)
     return pass.length === n
 };
 
-// console.log(hasExactly([1, 2, 3, 4, 5], a => a === 1, 1))
-// console.log(hasExactly([1, 2, 1, 4, 5], a => a === 1, 1))

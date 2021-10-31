@@ -12,7 +12,6 @@ export function sumToString(a, b) {
     return a + " + " + b + " = " + (a + b)
 }
 
-// console.log(sumToString(3, 4));
 
 
 /**
@@ -33,7 +32,6 @@ export function getIncreasingArray(startNumber, endNumber) {
     return result
 }
 
-// console.log(getIncreasingArray(3, 7))
 
 /**
  *
@@ -49,7 +47,6 @@ export function maxAndMin(numbers) {
     }
 }
 
-// console.log(maxAndMin([3, 4, 5, 6, 7]))
 
 /**
  *
@@ -74,5 +71,3 @@ export function countArray(array) {
 
     return result
 }
-
-// console.log(countArray([3, 6, 3, 2, 2, 3, 'some', 'hello', 'some', [1, 2]]))
