@@ -136,7 +136,7 @@ function avgMpgByYearAndHybrid(mpg_data) {
         })
 
         result[year] = {
-            hybrids: {
+            hybrid: {
                 city: getMean(hybrids.map(a => a.city_mpg)),
                 highway: getMean(hybrids.map(a => a.highway_mpg))
             },
