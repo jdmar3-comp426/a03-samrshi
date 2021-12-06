@@ -1,5 +1,5 @@
 import mpg_data from "./data/mpg_data.js";
-import {getStatistics} from "./medium_1.js";
+import { getMean, getMedian, getStatistics } from "./medium_1.js";
 
 /*
 This section can be done by using the array prototype functions.
@@ -19,12 +19,20 @@ see under the methods section
  *
  * @param {allCarStats.ratioHybrids} ratio of cars that are hybrids
  */
-export const allCarStats = {
-    avgMpg: undefined,
-    allYearStats: undefined,
-    ratioHybrids: undefined,
-};
+const city_mpgs = mpg_data.map((car) => car.city_mpg);
+const highway_mpgs = mpg_data.map((car) => car.highway_mpg);
 
+const all_years = mpg_data.map((car) => car.year);
+const hybrids = mpg_data.filter((car) => car.hybrid);
+
+export const allCarStats = {
+    avgMpg: {
+        city: getMean(city_mpgs),
+        highway: getMean(highway_mpgs)
+    },
+    allYearStats: getStatistics(all_years),
+    ratioHybrids: hybrids.length / mpg_data.length
+};
 
 /**
  * HINT: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
@@ -83,7 +91,66 @@ export const allCarStats = {
  *
  * }
  */
+
+function makerHybrids(mpg_data) {
+    var makes = new Set()
+
+    mpg_data.map(a => a.make).forEach(make => {
+        makes.add(make)
+    })
+
+    var result = []
+
+    makes.forEach(make => {
+        let hybrids = mpg_data.filter(a => a.make == make && a.hybrid)
+
+        if (hybrids.length > 0) {
+            result.push({
+                "make": make,
+                "hybrids": hybrids.map(a => a.id)
+            })
+        }
+    })
+
+    return result
+}
+
+function avgMpgByYearAndHybrid(mpg_data) {
+    var years = new Set();
+    mpg_data.map(a => a.year).forEach(year => {
+        years.add(year)
+    })
+
+    var result = {}
+
+    years.forEach(year => {
+        var hybrids = []
+        var nonhybrids = []
+
+        mpg_data.forEach(a => {
+            if (a.year === year && a.hybrid) {
+                hybrids.push(a)
+            } else if (a.year === year) {
+                nonhybrids.push(a)
+            }
+        })
+
+        result[year] = {
+            hybrid: {
+                city: getMean(hybrids.map(a => a.city_mpg)),
+                highway: getMean(hybrids.map(a => a.highway_mpg))
+            },
+            notHybrid: {
+                city: getMean(nonhybrids.map(a => a.city_mpg)),
+                highway: getMean(nonhybrids.map(a => a.highway_mpg))
+            }
+        }      
+    })
+
+    return result
+}
+
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+    makerHybrids: makerHybrids(mpg_data),
+    avgMpgByYearAndHybrid: avgMpgByYearAndHybrid(mpg_data)
 };

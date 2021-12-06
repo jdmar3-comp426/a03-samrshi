@@ -1,4 +1,5 @@
-import {variance} from "./data/stats_helpers.js";
+import { consoleUnitTest, consoleUnitTestObject, logSectionHeader } from "../helpers/unittest.js";
+import { variance } from "./data/stats_helpers.js";
 
 /**
  * Gets the sum of an array of numbers.
@@ -8,9 +9,8 @@ import {variance} from "./data/stats_helpers.js";
  * prototype functions. Very useful
  */
 export function getSum(array) {
-
+    return array.reduce((a, b) => a + b)
 }
-
 
 /**
  * Calculates the median of an array of numbers.
@@ -22,7 +22,26 @@ export function getSum(array) {
  * console.log(getMedian(array)); // 4.5
  */
 export function getMedian(array) {
+    array.sort((a, b) => a-b);
 
+    if (array.length % 2 == 1) {
+        const medianIndex = Math.floor(array.length / 2)
+        return array[medianIndex]
+    } else {
+        const higherMiddle = array.length / 2
+        const lowerMiddle = higherMiddle - 1
+
+        return (array[lowerMiddle] + array[higherMiddle]) / 2
+    }
+}
+
+/**
+ * Calculates the mean of an array of numbers.
+ * @param {number[]} array
+ * @returns {number|*}
+ */
+export function getMean(array) {
+    return array.reduce((a, b) => a + b) / array.length;
 }
 
 /**
@@ -45,6 +64,23 @@ export function getMedian(array) {
  }
  */
 export function getStatistics(array) {
+    const length = array.length
+    const sum = getSum(array)
+    const mean = getMean(array);
+    const median = getMedian(array)
+    const min = Math.min(...array)
+    const max = Math.max(...array)
+    const arrayVariance = variance(array, mean)
+    const standardDeviation = Math.sqrt(arrayVariance)
 
+    return {
+        length: length,
+        sum: sum,
+        mean: mean,
+        median: median,
+        min: min,
+        max: max,
+        variance: arrayVariance,
+        standard_deviation: standardDeviation
+    }
 }
-
